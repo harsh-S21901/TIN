@@ -1,0 +1,89 @@
+<%- include('../../fragments/header.ejs') %>
+    
+   <main>
+        <script type="application/javascript" src="../../../../js/bookingValidation.js"></script>
+        <h2><%= pageTitle%></h2>
+        
+        <form class="form" method="post" action="<%=formAction%>" novalidate> 
+            <input type="hidden" name="_id" value="<%= booking._id %>">
+            
+            
+            <label for="customerData"><%= __('bookings.form.customer') %>:<abbr title="required" aria-label="required">*</abbr></label>
+            <select id="customerId" name="customerId" required class="<%= validationErrors.find(e=>e.path.includes('customerId')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled' : ''%> >
+                <% if (formMode !='edit' ){ %>
+                    <option value="" selected="selected"><%= __('bookings.form.customer')%></option>
+                <% } %>
+
+                <% for (let i=0; i<allCustomers.length; i++) {let customer=allCustomers[i]; %>
+                    <option value="<%= customer._id %>" label="<%= customer.name + ' ' + customer.surname %>"
+                        <%=(booking._id && customer._id==booking.customers._id) ? 'selected' : ''%>>
+                    </option>
+                <% } %>
+
+            </select>
+            <span id="errorCustomerId" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('customer_id'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('customer_id')).message %>
+                <% } %>
+            </span>
+            
+         
+            <label for="roomData"><%= __('bookings.form.roomNumber') %>:<abbr title="required" aria-label="required">*</abbr></label>
+            <select id="roomId" name="roomId" required class="<%=validationErrors.find(e=>e.path.includes('roomId')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled': '' %> >
+                <% if (formMode !='edit' ){ %>
+                    <option value="" selected="selected"><%= __('bookings.form.room')%></option>
+                <% } %>
+
+                <%for (let i=0; i<allRooms.length; i++) {let room=allRooms[i]; %>
+                    <option value="<%= room._id %>" label="<%= room.roomNumber%>"
+                        <%=(booking._id && room._id.toString()==booking.rooms._id.toString()) ? 'selected' : '' %>></option>
+                <% } %>
+                
+            </select>
+            <span id="errorRoom_id" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('roomId'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('roomId')).message %>
+                <% } %>
+            </span>
+            
+            <label for="dateFrom"><%= __('bookings.form.dateFrom') %>:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="dateFrom" id="dateFrom" value="<%= (formMode=='createNew') ? '': booking.dateFrom.toISOString().split('T')[0] %>" class="<%= validationErrors.find(e=>e.path.includes('dateFrom')) ? 'error-input' : '' %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
+            <span id="errorDateFrom" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('dateFrom'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('dateFrom')).message %>
+                <% } %>
+            </span>
+            
+            <label for="dateTo"><%= __('bookings.form.dateTo') %>:</label>
+            <input type="date" name="dateTo" id="dateTo" value="<%= (formMode=='createNew') ? '': booking.dateTo.toISOString().split('T')[0] %>" class="<%= validationErrors.find(e=>e.path.includes('dateTo')) ? 'error-input' : '' %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
+            <span id="errorDateTo" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('dateTo'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('dateTo')).message %>
+                <% } %>
+            </span>
+                
+            
+      
+            <% if (formMode == 'showDetails') { %>
+                <div>
+                    <a class="button edit" href="/booking/edit/<%= booking._id %>"><%= __('general.buttons.edit') %></a>
+                </div>
+            <% } %>
+            
+            <div>
+                <p id="errorsSummary" class="errors-text"></p>
+
+                <% if (formMode != 'showDetails') { %>
+                    <input class="button submit" type="submit" value="<%=btnLabel%>" />
+                    <a class="button delete" href="/booking"><%= __('general.buttons.delete') %></a>
+                <% } else { %>
+                    <a class="button delete" href="/booking"><%= __('general.buttons.cancel') %></a>
+                <% } %>
+            </div>
+            
+        </form>
+    </main>
+    
+<%- include('../../fragments/footer.ejs') %>

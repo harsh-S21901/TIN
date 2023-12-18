@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navSub">
+          <ul>
+            <li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : '' %>">PL</a></li>
+            <li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : '' %>">EN</a></li>
+        </ul>
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%> navSubs"><%= __('main-page.title')%></a></li>
+            <% if(loggedUser) { %>
+            <li><a class = "<%= navLocation == 'customer' ? 'active' : ''%> navSubs" href="/customers"><%= __('main-page.nav.customer')%></a></li>
+            <li><a class = "<%= navLocation == 'booking' ? 'active' : ''%> navSubs" href="/booking"><%= __('main-page.nav.booking')%></a></li>
+            <li><a class = "<%= navLocation == 'rooms' ? 'active' : ''%> navSubs" href="/rooms"><%= __('main-page.nav.room')%></a></li>
+            <% } %>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <h1>Hotel Department</h1>
+            <img src="Images/Hotel.jpg" alt="Hotel Logo">
+        </header>
+
+
+        <% if(!loggedUser) { %>
+            <div id="login">
+              <h2><%= __('auth.login')%></h2>
+              <form action="/login" method="post" novalidate>
+                <label for="loginEmail"><%= __('auth.form.email')%>:</label>
+                <input  id="loginEmail" type="text" name="email" placeholder="Email" />
+                
+                <label for="loginPassword"><%= __('auth.form.password')%>:</label>
+                <input type="password" name="password" id="loginPassword" placeholder="Password" />
+
+                <input type="submit" value="Sign in" />
+                <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+              </form>
+            </div>
+          <% }else { %>
+            <span>You are logged in as: <%=loggedUser.name + " " + loggedUser.surname + " " %></span>
+            <a href="/logout"><%= __('main-page.nav.logout')%></a>
+            <% } %>
+  
+        

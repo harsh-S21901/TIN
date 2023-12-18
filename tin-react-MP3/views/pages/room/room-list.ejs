@@ -1,0 +1,30 @@
+<%- include('../../fragments/header.ejs') %>
+    <h2><%= __('main-page.nav.room')%></h2>
+   <table class="table">
+       <thead>
+           <tr>
+               <th><%= __('rooms.list.roomNumber')%></th>
+               <th><%= __('rooms.list.roomType')%></th>
+               <th><%= __('rooms.list.utility')%></th>
+               <th><%= __('rooms.list.actions')%></th>
+           </tr>
+           <tbody>
+            <% for (let room of rooms) { %>
+                <tr>
+                    <td><%= room.roomNumber %></td>
+                    <td><%= room.roomType %></td>
+                    <td><%= room.utility %></td>
+                    <td>
+                            <a href="/rooms/details/<%=room._id%>" class="button view"><%= __('general.buttons.view')%></a>
+                            <a href="/rooms/edit/<%=room._id%>" class="button edit"><%= __('general.buttons.edit')%></a>
+                            <a href="/rooms/delete/<%=room._id%>" class="button delete"><%= __('general.buttons.delete')%></a>
+                    </td>
+                </tr>
+               <% } %>
+           </tbody>
+       </thead>
+   </table>
+
+   <a class="button add" href="/rooms/add"><%= __('rooms.list.add')%></a>
+</main>
+<%- include('../../fragments/footer.ejs') %>

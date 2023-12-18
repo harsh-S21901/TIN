@@ -1,0 +1,28 @@
+<%- include('../../fragments/header.ejs') %>
+        <h2><%= __('main-page.nav.customer')%></h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><%= __('customers.list.name')%></th>
+                    <th><%= __('customers.list.surname')%></th>
+                    <th><%= __('customers.list.actions')%></th>
+                </tr>
+            
+            <tbody>
+                <% for (let customer of customers) { %>
+                <tr>
+                    <td><%= customer.name %></td>
+                    <td><%= customer.surname %></td>
+                    <td>
+                            <a href="/customers/details/<%=customer._id%>" class="button view"><%= __('general.buttons.view') %></a>
+                            <a href="/customers/edit/<%=customer._id%>" class="button edit"><%= __('general.buttons.edit') %></a>
+                            <a href="/customers/delete/<%=customer._id%>" class="button delete"><%= __('general.buttons.delete') %></a>
+                    </td>
+                </tr>
+               <% } %>
+            </tbody>
+            </thead>
+        </table>
+        <a class="button add" href="/customers/add"><%= __('customers.list.add')%></a>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

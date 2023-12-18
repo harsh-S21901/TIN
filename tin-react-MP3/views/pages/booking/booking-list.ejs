@@ -1,0 +1,34 @@
+
+<%- include('../../fragments/header') %>
+        <h2><%= __('main-page.nav.booking')%></h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><%= __('bookings.list.bookingNumber')%></th>
+                    <th><%= __('bookings.list.roomNumber')%></th>
+                    <th><%= __('bookings.list.dateFrom')%></th>
+                    <th><%= __('bookings.list.dateTo')%></th>
+                    <th><%= __('bookings.list.actions')%></th>
+                </tr>
+            <tbody>
+                <% for (let booking of bookings) { %>
+                    <tr>
+                        <td><%= booking._id %></td>
+                        <td><%= booking.roomId %></td>
+                        <td><%= booking.dateFrom %></td>
+                        <td><%= booking.dateTo %></td>
+                        <td>
+                                <a href="/booking/details/<%=booking._id%>" class="button view"><%= __('general.buttons.view') %></a>
+                                <a href="/booking/edit/<%=booking._id%>" class="button edit"><%= __('general.buttons.edit') %></a>
+                                <a href="/booking/delete/<%=booking._id%>" class="button delete"><%= __('general.buttons.delete') %></a>
+                        </td>
+                    </tr>
+                   <% } %>
+            </tbody>
+            </thead>
+        </table>
+
+        <a class="button add" href="/booking/add"><%= __('general.buttons.add') %></a>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

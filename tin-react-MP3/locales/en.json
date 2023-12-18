@@ -1,0 +1,110 @@
+{
+	"main-page": {
+		"title": "Home",
+		"nav": {
+			"customer": "Customer",
+			"booking": "Booking",
+			"room": "Room",
+			"logout": "Logout"
+		}
+	},
+	"auth": {
+		"login": "Login",
+		"form": {
+			"email": "Email",
+			"password": "Password"
+		},
+		"errors": {
+			"credentials": "Invalid email or password",
+			"required": "Email and password are required"
+		}
+	},
+	"general": {
+		"buttons": {
+			"cancel": "Cancel",
+			"return": "Return",
+			"delete": "Delete",
+			"edit": "Edit",
+			"view": "View",
+			"submit": "Submit",
+			"login": "Login",
+			"add": "general.buttons.add"
+		},
+		"validation_errors": {
+			"required": "This field is required",
+			"email": "This field must be a valid email",
+			"min": "This field does not have enough characters",
+			"max": "This field has to much characters"
+		}
+	},
+	"customers": {
+		"list": {
+			"add": "Add new customer",
+			"name": "Name",
+			"surname": "Surname",
+			"actions": "Actions"
+		},
+		"form": {
+			"name": "Name",
+			"surname": "Surname",
+			"email": "Email"
+		},
+		"new": "New Customer",
+		"edit": "Update customer",
+		"details": "Customer details"
+	},
+	"bookings": {
+		"list": {
+			"add": "Add new booking",
+			"bookingNumber": "Booking number",
+			"roomNumber": "Room number",
+			"dateFrom": "Check in date",
+			"dateTo": "Check out date",
+			"actions": "Actions"
+		},
+		"form": {
+			"customer": "Choose customer",
+			"roomNumber": "Choose room",
+			"dateFrom": "Check in date",
+			"dateTo": "Check out date",
+			"room": "bookings.form.room"
+		},
+		"new": "New booking",
+		"edit": "Update booking",
+		"details": "Booking details"
+	},
+	"rooms": {
+		"list": {
+			"add": "Add new room",
+			"roomNumber": "Room number",
+			"roomType": "Room Type",
+			"utility": "Utility",
+			"actions": "Actions",
+			"details": "rooms.list.details"
+		},
+		"form": {
+			"roomNumber": "Room number",
+			"roomType": "Room Type",
+			"utility": "Utility"
+		},
+		"new": "New room",
+		"edit": "Update room",
+		"details": "Room details"
+	},
+	"list": {
+		"actions": "list.actions"
+	},
+	"nav": {
+		"customer": "nav.customer"
+	},
+	"Main-page": {
+		"nav": {
+			"customer": "Main-page.nav.customer"
+		}
+	},
+	"Mainpage": {
+		"nav": {
+			"customer": "Mainpage.nav.customer"
+		}
+	}
+}

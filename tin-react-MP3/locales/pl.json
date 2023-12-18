@@ -1,0 +1,93 @@
+{
+	"main-page": {
+		"title": "Strona główna",
+		"nav": {
+			"customer": "Klient",
+			"booking": "Rezerwacje",
+			"room": "Pokoje",
+			"logout": "Wyloguj"
+		}
+	},
+	"auth": {
+		"login": "Zaloguj sie",
+		"form": {
+			"email": "Email",
+			"password": "Hasło"
+		},
+		"errors": {
+			"credentials": "Nieprawidłowy e-mail lub hasło",
+			"required": "E-mail i hasło są wymagane"
+		}
+	},
+	"general": {
+		"buttons": {
+			"return": "Powrót",
+			"delete": "Usunąć",
+			"edit": "Edytuj",
+			"view": "Pogląd",
+			"submit": "Składać",
+			"login": "Zaloguj sie",
+			"add": "general.buttons.add"
+		},
+		"validation_errors": {
+			"required": "To pole jest wymagane",
+			"email": "To pole musi zawierać prawidłowy adres e-mail",
+			"min": "W tym polu jest za mało znaków",
+			"max": "To pole ma za dużo znaków"
+		}
+	},
+	"customers": {
+		"list": {
+			"add": "Dodaj nowego klienta",
+			"name": "Imię",
+			"surname": "Nazwisko",
+			"actions": "działania"
+		},
+		"form": {
+			"name": "Imię",
+			"surname": "Nazwisko",
+			"email": "Email"
+		},
+		"new": "Nowy klient",
+		"edit": "Zaktualizuj klienta",
+		"details": "Szczegóły klienta"
+	},
+	"bookings": {
+		"list": {
+			"add": "Dodaj nową rezerwację",
+			"bookingNumber": "Numer rezerwacji",
+			"roomNumber": "Numer pokoju",
+			"dateFrom": "Sprawdź w terminie",
+			"dateTo": "Sprawdź datę",
+			"actions": "działania"
+		},
+		"form": {
+			"customer": "Wybierz klienta",
+			"roomNumber": "Wybierz pokój",
+			"dateFrom": "Sprawdź w terminie",
+			"dateTo": "Sprawdź datę",
+			"room": "bookings.form.room"
+		},
+		"new": "Nowa rezerwacja",
+		"edit": "Zaktualizuj rezerwację",
+		"details": "Szczegóły rezerwacji"
+	},
+	"rooms": {
+		"list": {
+			"add": "Dodaj nowy pokój",
+			"roomNumber": "Numer pokoju",
+			"roomType": "Rodzaj pokoju",
+			"utility": "Pożytek",
+			"actions": "działania",
+			"details": "rooms.list.details"
+		},
+		"form": {
+			"roomNumber": "Numer pokoju",
+			"roomType": "Rodzaj pokoju",
+			"utility": "Pożytek"
+		},
+		"new": "Nowy pokój",
+		"edit": "Zaktualizuj pokój",
+		"details": "Szczegóły pokoju"
+	}
+}
